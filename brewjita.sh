@@ -83,6 +83,8 @@ CASKS=(
 echo "Pouring the casks..."
 brew cask install ${CASKS[@]}
 #
+# adapted stuff- todo?
+#
 # 'brew cask install --appdir=~/my-apps/Applications'
 #cask "firefox", args: { appdir: "~/my-apps/Applications" }
 # 'brew cask install' only if '/usr/libexec/java_home --failfast' fails
