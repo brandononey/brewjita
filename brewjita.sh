@@ -10,7 +10,7 @@
 # |                                                              |
 # |   ~ a magic lil' script to make macOS feel more like home ~  |
 # |                                                              |
-# |                                https://github.com/clairelet  |
+# |                               github.com/clairelet/brewjita  |
 #  --------------------------------------------------------------
 #
 # enable tap ta' click
