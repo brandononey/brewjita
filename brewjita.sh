@@ -24,7 +24,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # check for homebrew - install if not found
 if test ! $(which brew); then
     echo "~ this round's on me- installing homebrew ~"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else echo "~ this round's on you- homebrew already installed ~"
 fi
 #
@@ -33,9 +33,6 @@ brew update
 #
 # tap the cask repo
 brew tap "homebrew/cask"
-#
-# set arguments for all 'brew cask install' commands
-cask_args appdir: "~/Applications"
 #
 echo "soon your mac will feel brand GNU..."
 brew install coreutils
@@ -49,12 +46,11 @@ PACKAGES=(
 	git
 	htop
 	irssi
-	nmap
 	wget
 )
 #
 echo "Brewing packages..."
-brew install ${PACKAGES[@]}
+for i in "${PACKAGES[@]}"; do brew cask install "$i"; done
 #
 echo "Cleaning up spills..."
 brew cleanup
@@ -62,26 +58,20 @@ brew cleanup
 # Define casks (GUI) for installation
 CASKS=(
 	amazon-chime
-	burp-suite
-	firefox
-	github-desktop
+	github
 	google-chrome
 	google-drive-file-stream
 	iterm2
-	maltego
 	malwarebytes
-	metasploit
-	protonvpn
 	slack
 	sublime-text
 	the-unarchiver
 	visual-studio-code
 	vlc
-	vmware-fusion
 )
 #
 echo "Pouring the casks..."
-brew cask install ${CASKS[@]}
+for i in "${CASKS[@]}"; do brew cask install "$i"; done
 #
 # adapted stuff- todo?
 #
